@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .models import Commit
 # Create your views here.
 
 
@@ -21,7 +22,7 @@ def write_view(request):
     """
 
 
-def edit_view(request):
+def edit_view(request, pk):
     """
     게시글 수정 임상빈
     """
