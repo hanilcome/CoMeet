@@ -21,11 +21,21 @@ def write_view(request):
     게시글 쓰기. 백지현
     """
 
+# 게시글 수정함수
 
-def edit_view(request, pk):
-    """
-    게시글 수정 임상빈
-    """
+
+def edit_view(request, id):
+    my_commit = Commit.objects.get(id=id)
+    if request.method == 'POST':
+        user = request.user
+        my_commit = Commit()
+        my_commit.writer = user
+        my_commit.title = request.POST.get('title', '')
+        my_commit.content = request.POST.get('content', '')
+        my_commit.save()
+        return render(request, 'commit/detail.html', {'commit': my_commit})
+    elif request.method == 'GET':
+        return render(request, 'commit/edit.html', {'commit': my_commit})
 
 
 def delete_view(request):
