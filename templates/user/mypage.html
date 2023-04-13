@@ -1,8 +1,8 @@
-{% comment %} {% extends 'navigator.html' %} {% endcomment %}
+{% extends 'base.html' %}
+{% block title %}
+내 프로필 정보
+{% endblock %} 
 
-{% comment %} {% block title %}
-내 계정 정보
-{% endblock %} {% endcomment %}
 {% block content %}
 <div class="container">
     <div class="wrap">
@@ -11,22 +11,25 @@
             {% comment %} <div>이미지</div> {% endcomment %}
             <div class="form-group mt-2 mb-2">
                 <label for="username">Name</label>
-                <input type="text" class="form-control" id="username" name="username value="{{user.username}}">
+                <input type="text" class="form-control" id="username" name="username" value="{{user.username}}" readonly>
             </div>
             <div class="form-group mt-2 mb-2">
                 <label for="email">E-mail</label>
-                <input type="text" class="form-control" id="email" name="email" value="{{user.email}}">
+                <input type="text" class="form-control" id="email" name="email" value="{{user.email}}" readonly>
             </div>
             <hr>
             <div style="float: right">
                 <button type="button" onclick="enableEdit()">편집</button>
-                <button type="submit" class="btn btn-primary">저장</button>
+                <button type="submit" style="display:none; class="btn btn-primary">저장</button>
             </div>
         </form>
     </div>
 </div>
 {% endblock %}
 
+{% verbatim %}
+<script src="/static/test.js"></script>
+{% endverbatim %}
 
 {% if messages %}
     <ul class="messages">
