@@ -1,26 +1,61 @@
 from django.shortcuts import render, redirect
 # login_required : 로그인이 되어있어야만 실행되게 하는 함수
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
+from django.contrib import messages, auth 
+from django.contrib.auth import get_user_model
+from .models import User
+
 
 
 def log_in_view(request):
-    """
-    로그인! 김태연
-    """
+    if request.method == 'POST':
+        username = request.POST.get('username', None)
+        password = request.POST.get('password', None)
 
 
-def sign_up_view(requset):
-    """
-    회원가입!김태연
-    """
+        me = auth.authenticate(request, username=username, password=password)
+        if me is not None:
+            auth.login(request, me)
+            return redirect('/')
+        else:
+            return redirect('/log_in/')
+    
+    elif request.method == 'GET':
+        user = request.user.is_authenticated
+        if user:
+            return redirect('/')
+        else:
+            return render(request, 'user/login.html')
+
+
+def sign_up_view(request):
+    if request.method == 'GET':
+        user = request.user.is_authenticated
+        if user:
+            return redirect('/')
+        else:
+            return render(request, 'user/signup.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username', None)
+        password = request.POST.get('password', None)
+        password2 = request.POST.get('password2', None)
+
+
+        if password != password2:    # 비밀번호 불일치시 회원가입 화면 다시 보여주기
+            return render(request, 'user/signup.html')
+        else:
+            exist_user = get_user_model().objects.filter(username=username)
+            if exist_user :
+                return render(request, 'user/signup.html')
+            else:
+                User.objects.create_user(username=username, password=password)    
+                return redirect('/log_in')
 
 
 @login_required
-def log_out_view(requset):
-    """
-    로그아웃. 남는 사람이 하는걸로 !
-    """
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
 
 
 @login_required
