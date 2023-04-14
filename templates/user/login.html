@@ -6,17 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Co.Meet ⎜ Login</title>
+    <link rel="stylesheet" href="/static/css.css">
     <link rel="stylesheet" href="/static/taeyeon1.css">
-  </head>
 
+  </head>
+  {% comment %} 로고묶은 h2태그였던 줄을 a태그로 바꾸어서 작동하게 하느라 class도 부여했습니다 css도 확인해서 수정해주세요(회원가입페이지 동일) {% endcomment %}
   <body>
     <section>
       <div class="form-box">
         <div class="form-value">
-          <form action="">
-            <h2>
+          <form action="">  
+            <a href="{% url 'commit:home' %}" class='login_logo'>
               <span class="co">Co.</span>
-              <span class="meet">Meet</span></h2>
+              <span class="meet">Meet</span></a>
             <div class="inputbox">
               <input type="email" required="required">
               <label for="">Email</label>
@@ -32,18 +34,24 @@
             </div>
             <button class="log">Log in</button>
             <button class="sign">Sign up
-
               <div class="register">
                 <p>Don't have a account
                   <a href="{% url 'user:sign_up' %}">Register</a>
                 </p>
               </div>
             </form>
-
           </div>
         </div>
       </section>
-
     </body>
 
   </html>
+
+{% comment %} 링크거는거는 스파르타 강의에도 있긴합니다(form태그 안에 적용)
+잘 모르겠으면 말해주세요
+
+버튼에 각 urls로 넘어갈수 있게 하는코드
+버튼의 href안에 {% url'app_name:path_name'%}
+
+예시) 로그아웃작동하는 링크
+<a href="{% url 'user:log_out' %}" class="logout">logout</a> {% endcomment %}

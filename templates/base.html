@@ -28,27 +28,36 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="{%url'commit:home'%}">
           <span class="co">
             Co.</span><span class="meet">Meet</span></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-        <!-- {% if user.is_authenticated %} {{ user.username }} -->
-        <img src="https://i.ibb.co/pRGMQPW/image.png" alt=""/>
-        <div class="dropdown">
-          <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li>
-              <a href="{% url 'user:logout' %}" class="logout">logout</a>
-            </li>
-            <li>
-              <a href="/">setting</a>
-            </li>
-            <li></li>
-          </ul>
-        </div>
-        <!-- {% else %} -->
-        <!-- <form class="form-inline my-2 my-lg-0"> <ul class="navbar-nav mr-auto"> <li class="nav-item active"> <a class="nav-link" href="/signin"> love in Login | <span class="sr-only"></span ></a> </li> </ul> </form> -->
-        <!-- {% endif %} -->
+        {% if user.is_authenticated %}
+          {{ user.username }}
+          <img src="https://i.ibb.co/pRGMQPW/image.png" alt=""/>
+          <div class="dropdown">
+            <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <a href="{% url 'user:log_out' %}" class="logout">logout</a>
+              </li>
+              <li>
+                <a href="{%url'user:my_page'%}">setting</a>
+              </li>
+              <li></li>
+            </ul>
+          </div>
+        {% else %}
+          <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{%url'user:log_in'%}">
+                  love in Login |
+                  <span class="sr-only"></span></a>
+              </li>
+            </ul>
+          </form>
+        {% endif %}
       </div>
     </nav>
     {% block content %}{% endblock %}
@@ -63,9 +72,9 @@
         Copyright(c)2023 Team.rAinbow All rights reserved.
       </p>
     </footer>
-    <!-- {% verbatim %} -->
-    <script src="/static/test.js"></script>
-    <!-- {% endverbatim %} -->
+    {% verbatim %}
+      <script src="/static/test.js"></script>
+    {% endverbatim %}
   </body>
 
 </html>
