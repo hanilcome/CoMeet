@@ -1,52 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Co.Meet ⎜ Sign Up</title>
+    <link rel="stylesheet" href="/static/css.css">
     <link rel="stylesheet" href="/static/taeyeon2.css">
-</head>
+  </head>
 
-<body>
+  <body>
     <section>
-        <div class="form-box">
-            <div class="form-value">
-                <form action="">
-                    <h2>
-                        <span class="co">Co.</span> 
-                        <span class="meet">Meet</span></h2>
-                    <div class="inputbox">
-                        <input type="text" required>
-                        <label for="">Name</label>
-                    </div>
-                    <div class="inputbox">
-                        <input type="email" required>
-                        <label for="">Email</label>
-                    </div>
-                    <div class="inputbox">
-                        <input type="password" required>
-                        <label for="">Password</label>
-                    </div>
-                    <div class="inputbox">
-                        <input type="password" required>
-                        <label for="">Password check</label>
-                    </div>
-                    <div class="news">
-                        <label for=""><input type="checkbox"> Co.Meet 소식받기 </label></br>
-                    </div>
-                    <div class="service"> 
-                        <label for=""><input type="checkbox"> 서비스 약관 동의 </label></br>
-                    </div>
-                    <div class="info">
-                        <label for=""><input type="checkbox"> 개인정보 제공 동의 </label>
-                    </div>
-                    <button class="sign">Sign up </button>
-
-                </form>
-
+      <div class="form-box">
+        <div class="form-value">
+          <form action="">
+            <h2>
+              <span class="co">Co.</span>
+              <span class="meet">Meet</span></h2>
+            <div class="inputbox">
+              <input type="text" required="required">
+              <label for="">Name</label>
             </div>
+            <div class="inputbox">
+              <input type="email" required="required">
+              <label for="">Email</label>
+            </div>
+            <div class="inputbox">
+              <input type="password" required="required">
+              <label for="">Password</label>
+            </div>
+            <div class="inputbox">
+              <input type="password" required="required">
+              <label for="">Password check</label>
+            </div>
+            <div class="news">
+              <label for=""><input type="checkbox">
+                Co.Meet 소식받기
+              </label>
+            </br>
+          </div>
+          <div class="service">
+            <label for=""><input type="checkbox">
+              서비스 약관 동의
+            </label>
+          </br>
         </div>
-    </section>
+        <div class="info">
+          <label for=""><input type="checkbox">
+            개인정보 제공 동의
+          </label>
+        </div>
+        <button class="sign">Sign up
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
 </body>
+
 </html>
+
+{% comment %} 링크거는거는 스파르타 강의에도 있긴합니다(form태그 안에 적용)
+잘 모르겠으면 말해주세요
+
+버튼에 각 urls로 넘어갈수 있게 하는코드
+버튼의 href안에 {% url'app_name:path_name'%}
+
+예시) 로그아웃작동하는 링크
+<a href="{% url 'user:log_out' %}" class="logout">logout</a> {% endcomment %}
