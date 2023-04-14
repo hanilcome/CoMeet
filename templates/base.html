@@ -23,21 +23,40 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/css.css" />
-    <title>{% block title %}{% endblock %}</title>
+    <!-- 타이틀에 삽입{% block title %}{% endblock %} -->
+    <title>Title</title>
   </head>
+
   <body>
-    <div class="wrap">
-      <div class="wrap_header">
-        <header></header>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <a href="#" class="head_title">Co. Meet</a>
+          </div>
+          <div class="col-xs-8" allign="right">
+            <form action="" method="get" id="right-search-form">
+              <input
+                type="text"
+                placeholder="코밋 검색"
+                value
+                id="right-search-input"
+                name="search"
+                data-siid="si_input_0"
+              />
+            </form>
+            <a href="/" id="comt-home-nav"
+              ><i class="fa fa-home" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
       </div>
-      <div class="nav_wrap">
-        <nav></nav>
-      </div>
-    </div>
-    {% block content %}{% endblock %}
+      <div id="header-bar" class="container"></div>
+    </header>
+    <!-- {% block content %}{% endblock %} -->
     <footer></footer>
-    {% verbatim %}
+    <!-- {% verbatim %} -->
     <script src="/static/test.js"></script>
-    {% endverbatim %}
+    <!-- {% endverbatim %} -->
   </body>
 </html>
