@@ -9,7 +9,7 @@ from django.contrib import messages
 def home(request):
     if request.method == 'GET':
         all_commit = Commit.objects.all().order_by('-created_at')
-        return render(request, 'commit/main.html', {'commit': all_commit})
+        return render(request, 'main.html', {'commit': all_commit})
 
 
 def detail(request):
@@ -17,14 +17,6 @@ def detail(request):
         # order_by: tweet이 생성된 시간 순으로 출력 해줌(하지만 안에 '-'를 넣어줌으로써 역순으로 정렬된다.)
         all_commit = Commit.objects.all().order_by('-created_at')
         return render(request, 'main.html', {'commit_': all_commit})
-
-    # elif request.method == 'POST':
-    #     users = request.user
-    #     all_commit = Commit()
-    #     all_commit.writer = users
-    #     all_commit.content = request.POST.get('my-content', '')
-    #     all_commit.save()
-    #     return redirect('/detail')
 
 
 def detail_commit(request, id):
@@ -63,7 +55,7 @@ def detail_delete_comment(request, id):
 def write_view(request):
     # 화면 띄워주기
     if request.method == 'GET':
-        return render(request, 'commit/write_view.html')
+        return render(request, 'commit/write.html')
 
     # 데이터베이스에 값 저장
     if request.method == 'POST':
