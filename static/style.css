@@ -19,6 +19,55 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'TTTogether';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/TTTogetherA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'twaysky';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'twayair';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'twayfly';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayfly.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SBAggroB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KORAILCondensed-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KORAILCondensed-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ansungtangmyun-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ansungtangmyun-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 header {
   background-color: #efe3ff;
   width: 100%;
@@ -32,19 +81,20 @@ header {
   width: 1100px;
   padding-bottom: 30px;
   padding-top: 10px;
-  border-bottom: 2px solid #000;
-  background: linear-gradient();
+  border-bottom: 2px solid #ddd;
+  text-shadow: #FC0 1px 0 10px;
+
 }
 
-.co {
+.co_base {
   font-family: 'Kanginhan';
   font-size: 8rem;
   color: red;
 }
 
-.meet {
+.meet_base {
   color: rgb(0, 0, 0);
-  font-family: 'GmarketSansMedium';
+  font-family: 'Ansungtangmyun-Bold';
   font-size: 5rem;
 }
 
@@ -142,6 +192,6 @@ nav img {
 
 .smeet {
   color: rgb(0, 0, 0);
-  font-family: 'GmarketSansMedium';
+  font-family: 'Ansungtangmyun-Bold';
   font-size: 2rem;
 }

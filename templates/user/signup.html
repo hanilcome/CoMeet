@@ -14,24 +14,25 @@
     <section>
       <div class="form-box">
         <div class="form-value">
-          <form action="">
+          <form action="/sign_up/" method='post'>
+            {% csrf_token %}
             <h2>
-              <span class="co">Co.</span>
-              <span class="meet">Meet</span></h2>
+              <span class="co_signup">Co.</span>
+              <span class="meet_signup">Meet</span></h2>
             <div class="inputbox">
-              <input type="text" required="required">
+              <input type="text" required="required" id="username" name="username">
               <label for="">Name</label>
             </div>
             <div class="inputbox">
-              <input type="email" required="required">
+              <input type="email" required="required" id="email" name="email">
               <label for="">Email</label>
             </div>
             <div class="inputbox">
-              <input type="password" required="required">
+              <input type="password" required="required" id="password" name="password">
               <label for="">Password</label>
             </div>
             <div class="inputbox">
-              <input type="password" required="required">
+              <input type="password" required="required" id="password2" name="password2">
               <label for="">Password check</label>
             </div>
             <div class="news">
@@ -51,7 +52,7 @@
             개인정보 제공 동의
           </label>
         </div>
-        <button class="sign">Sign up
+        <button class="sign" type='submit'>Sign up
         </button>
 
       </form>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Co.Meet ⎜ Edit{% endblock %}
+
+{% block content %}
+  <div class="board_wrap">
+    <div class="board_title">
+      <strong>수정하기</strong>
+    </div>
+    <div class="board_write_wrap">
+      <div class="board_write">
+        <form action="edit/{{ commit.id }}" method="post">
+          {% csrf_token %}
+          <div class="title">
+            <textarea name='my-title' id="my-title">{{ commit.title }}</textarea>
+          </div>
+          <div class="cont">
+            <textarea name='my-content' id="my-content">{{ commit.content }}</textarea>
+          </div>
+          <button type="submit" class="bt_submit">작성하기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

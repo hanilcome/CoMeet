@@ -15,16 +15,17 @@
     <section>
       <div class="form-box">
         <div class="form-value">
-          <form action="">  
+          <form method='post' action="{% url 'user:log_in' %}">  
+            {% csrf_token %}
             <a href="{% url 'commit:home' %}" class='login_logo'>
-              <span class="co">Co.</span>
-              <span class="meet">Meet</span></a>
+              <span class="co_login">Co.</span>
+              <span class="meet_login">Meet</span></a>
             <div class="inputbox">
-              <input type="email" required="required">
+              <input type="email" id="email" name="email">
               <label for="">Email</label>
             </div>
             <div class="inputbox">
-              <input type="password" required="required">
+              <input type="password" id="password" name="password">
               <label for="">Password</label>
             </div>
             <div class="forget">
@@ -32,11 +33,11 @@
                 <a href="#">Forget Password</a>
               </label>
             </div>
-            <button class="log">Log in</button>
-            <button class="sign">Sign up
+            <button class="log" type='submit'>Log in</button>
+            <button class="sign"><a href="{% url 'user:sign_up' %}">Sign up</a>
               <div class="register">
-                <p>Don't have a account
-                  <a href="{% url 'user:sign_up' %}">Register</a>
+                <p>너는 가입한다 우리의
+                  <a href="{% url 'user:sign_up' %}">여기에</a>
                 </p>
               </div>
             </form>
