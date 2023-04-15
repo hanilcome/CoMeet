@@ -1,0 +1,194 @@
+/* 반응형 스타일 적용 / 보기싫음 빼도 됨 */
+
+@media (max-width: 1000px) {
+    .board_wrap {
+        width: 100%;
+        min-width: 320px;
+        padding: 0, 30px;
+        box-sizing: border-box;
+    }
+
+    .board_list .num,
+    .board_list .writer,
+    .board_list .cont
+    .board_list .title {
+        display: none;
+    }
+
+    .board_list .title {
+        text-indent: 10px;
+    }
+
+    .board_list .top .title {
+        text-indent: 0;
+    }
+
+    .board_list .date {
+        width: 40%;
+    }
+
+    .board_page a {
+        width: 26px;
+        height: 26px;
+    }
+
+    .board_page a.bt {
+        padding-top: 7px;
+    }
+
+    .board_page a.num {
+        padding-top: 6px;
+    }
+
+    .board_view .info dl {
+        width: 50%;
+        padding: 0;
+    }
+    .board_view .info dl:nth-child(-n+2) {
+        margin-bottom: 5px;   
+    }
+
+    .board_view .info dl::before {
+        display: none;
+    }
+
+    .board_view .info dl dt,
+    .board_view .info dl dd {
+        font-size: 1.2rem;
+    }
+
+    .board_write .info dl {
+        width: 49%;
+    }
+
+    .board_write .info dl:first-child {
+        margin-right: 2%;
+    }
+
+    .board_write .title dt,
+    .board_write .info dt {
+        display: none;
+    }
+
+    .board_write .title dt,
+    .board_write .info dd {
+        width: 100%;
+    }
+
+    .board_write .title input[type="text"],
+    .board_write .info input[type="text"],
+    .board_write .info input[type="password"] {
+        width: 100%;
+    }
+
+
+}
+
+@font-face {
+    font-family: 'Kanginhan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_07@1.0/Kanginhan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: light;
+    font-style: light;
+  }
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+.co2 {
+    font-family: 'Kanginhan';
+    color: red;
+    font-size: 7rem;
+}
+
+.meet2 {
+    font-family: 'GmarketSansMedium';
+}
+
+ul, li {
+    list-style: none;    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.count {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 2rem;
+}
+
+.board_wrap {
+    width: 1000px;
+    margin: auto;
+}
+
+/* 기존엔 30px이었는데 20px로 수정했습니다!  */
+.board_title {
+    margin-bottom: 20px;
+}
+
+/* 기존엔 margin-left가 없었습니다! 제가 임의로 추가함 */
+.board_title strong {
+    font-size: 3rem;
+    margin-left: 20px;
+}
+
+.board_title p {
+    margin-top: 5px;
+    font-size:  1.4rem;
+}
+
+
+/* write 글쓰기 부분 */
+.board_write {     /* 맨 위 바 */
+    border-top: 2px solid #000;
+}
+
+.board_write .title,
+.board_write .cont {
+    border-bottom: 1px solid #000;
+    padding: 15px;
+}
+
+.board_write .title textarea{
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+
+.board_write .cont textarea {        /* 내용 입력 부분 */
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+
+.bt_submit{
+    width: 100px;
+    display: block;
+    margin: 10px auto auto auto;
+}
