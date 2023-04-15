@@ -8,10 +8,10 @@ from .models import User
 
 def log_in_view(request):
     if request.method == 'POST':
-        email = request.POST.get('email', None)
+        username = request.POST.get('username', None)
         password = request.POST.get('password', None)
 
-        me = auth.authenticate(request, email=email, password=password)
+        me = auth.authenticate(request, username=username, password=password)
         if me is not None:
             auth.login(request, me)
             return redirect('commit:home')    # 메인페이지로 가는

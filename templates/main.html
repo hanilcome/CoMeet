@@ -16,7 +16,7 @@
         <div>
           <div class="num">{{ cmt.id }}</div>
           <div class="title">
-            <a href="view.html">{{ cmt.title }}</a>
+            <a href="{% url 'commit:detail' %}">{{ cmt.title }}</a>
           </div>
           <div class="writer">{{ cmt.writer.username }}</div>
           <div class="date">{{ cmt.updated_at }}</div>
