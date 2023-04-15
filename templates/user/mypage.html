@@ -4,23 +4,27 @@
 {% endblock %} 
 
 {% block content %}
-<div class="container">
-    <div class="wrap">
+<div class="profile-container">
+    <div class="profile-wrap">
         <h2 class="title-center">내 프로필 정보</h2>
         <form class="form-area" method="post" action="/my_page/">
-            {% comment %} <div>이미지</div> {% endcomment %}
             <div class="form-group mt-2 mb-2">
                 <label for="username">Name</label>
-                <input type="text" class="form-control" id="username" name="username" value="{{user.username}}" readonly>
+                <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}"
+                    readonly>
             </div>
             <div class="form-group mt-2 mb-2">
-                <label for="email">E-mail</label>
-                <input type="text" class="form-control" id="email" name="email" value="{{user.email}}" readonly>
+                <label for="email">E-mail Account</label>
+                <input type="text" class="form-control" id="email" name="email" value="{{ user.email }}" readonly>
             </div>
-            <hr>
+            <div class="form-group mt-2 mb-2">
+                <label for="profile_msg">Comment</label>
+                <input type="text" class="form-control" id="profile_msg" name="profile_msg" value="{{ user.profile_msg }}"
+                    readonly>
+            </div>
             <div style="float: right">
-                <button type="button" onclick="enableEdit()">편집</button>
-                <button type="submit" style="display:none; class="btn btn-primary">저장</button>
+                <button type="button" onclick="enableEdit()" class="btn btn-outline-dark">수정</button>
+                <button type="submit" style=display:none; class="btn btn-outline-dark">저장</button>
             </div>
         </form>
     </div>
