@@ -27,8 +27,8 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand" href="{% url 'commit:home' %}">
-            <span class="co">
-              Co.</span><span class="meet">Meet</span></a>
+            <span class="co_base">
+              Co.</span><span class="meet_base">Meet</span></a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
           {% if user.is_authenticated %}
             {{ user.username }}
@@ -51,8 +51,10 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="{% url 'user:log_in' %}">
                     love in Login |
-                    <span class="sr-only"></span></a>
-                  <a href="{% url 'user:sign_up' %}"> JOIN</a>
+                    <span class="join"></a>
+                    <a href="{% url 'user:sign_up' %}">
+                      JOIN</a>
+                  </span>
                 </li>
               </ul>
             </form>

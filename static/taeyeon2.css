@@ -13,6 +13,12 @@
     font-style: light;
 }
 
+@font-face {
+    font-family: 'Ansungtangmyun-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/Ansungtangmyun-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
     margin: 0;
@@ -54,14 +60,14 @@ h2 {
     text-align: center;
 }
 
-.co {
+.co_signup {
     font-family: 'Kanginhan';
     font-size: 2.5em;
     color: red;
 }
 
-.meet {
-    font-family: 'GmarketSansMedium';
+.meet_signup {
+    font-family: 'Ansungtangmyun-Bold';
 }
 
 .inputbox {
