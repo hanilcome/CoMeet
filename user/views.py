@@ -9,7 +9,6 @@ from .models import User
 def log_in_view(request):
     if request.method == 'POST':
         username = request.POST.get('username', None)
-        email = request.POST.get('email', None)
         password = request.POST.get('password', None)
 
         me = auth.authenticate(request, username=username, password=password)
