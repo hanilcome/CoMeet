@@ -153,7 +153,7 @@ header #right-search-form {
 }
 
 .logout {
-  padding-left: 20px;
+  border-top: 1px solid #ddd;
 }
 
 .container form ul {
@@ -165,7 +165,8 @@ nav img {
 }
 
 .dropdown>ul>li {
-  text-decoration: none;
+  padding-left: 11px;
+  
 }
 
 .footer {

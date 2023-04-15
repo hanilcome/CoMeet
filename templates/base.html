@@ -39,10 +39,10 @@
               <ul class="dropdown-menu dropdown-menu-right">
                 <li>{{ user.username }}</li>
                 <li>
-                  <a href="{% url 'user:log_out' %}" class="logout">logout</a>
+                  <a href="{% url 'user:log_out' %}" class="logout">로그아웃</a>
                 </li>
                 <li>
-                  <a href="{% url 'user:my_page' %}">setting</a>
+                  <a href="/my_page/{{user.id}}">내 프로필</a>
                 </li>
               </ul>
             </div>

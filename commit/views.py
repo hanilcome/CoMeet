@@ -23,7 +23,7 @@ def detail_commit(request, id):
     my_commit = Commit.objects.get(id=id)
     commit_comment = Comment.objects.filter(
         commit_id=id).order_by('-created_at')
-    return render(request, 'detailpage.html', {'my_commit_': my_commit, 'comment': commit_comment})
+    return render(request, 'commit/detail.html', {'my_commit_': my_commit, 'comment': commit_comment})
 
 
 def detail_write_comment(request, id):
@@ -76,15 +76,15 @@ def edit_view(request, id):
         user = request.user
         my_commit = Commit()
         my_commit.writer = user
-        my_commit.title = request.POST.get('title', '')
-        my_commit.content = request.POST.get('content', '')
+        my_commit.title = request.POST.get('my-title', '')
+        my_commit.content = request.POST.get('my-content', '')
         my_commit.save()
         return render(request, 'commit/detail.html', {'commit': my_commit})
     elif request.method == 'GET':
         return render(request, 'commit/edit.html', {'commit': my_commit})
 
 
-def delete_view(request):
-    """
-    게시글 삭제. 남는 사람이 하는걸로 !
-    """
+def delete_view(request, id):
+    my_commit = Commit.objects.get(id=id)
+    my_commit.delete()
+    return redirect('/')
