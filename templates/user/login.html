@@ -15,7 +15,8 @@
     <section>
       <div class="form-box">
         <div class="form-value">
-          <form method='post' action='/sign_in/'>  
+          <form method='post' action='/'>  
+            {% csrf_token %}
             <a href="{% url 'commit:home' %}" class='login_logo'>
               <span class="co">Co.</span>
               <span class="meet">Meet</span></a>
