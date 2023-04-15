@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-
 <html lang="en">
 
   <head>
@@ -52,9 +51,8 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="{% url 'user:log_in' %}">
                     love in Login |
-                  </a>
-                  <a href="{% url 'user:sign_up' %}">
-                    JOIN</a>
+                    <span class="sr-only"></span></a>
+                  <a href="{% url 'user:sign_up' %}"> JOIN</a>
                 </li>
               </ul>
             </form>
