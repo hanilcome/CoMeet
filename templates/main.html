@@ -15,17 +15,16 @@
       {% for cmt in commit %}
         <div>
           <div class="num">{{ cmt.id }}</div>
-          <div class="title">
-            <a href="view.html">{{ cmt.title }}</a>
+          <div class="title" style="text-align: center;">
+            <a href="/detail/{{cmt.id}}">{{ cmt.title }}</a>
           </div>
           <div class="writer">{{ cmt.writer.username }}</div>
-          <div class="date">{{ cmt.updated_at }}</div>
+          <div class="date">{{ cmt.updated_at | date:"Y-m-d" }}</div>
         </div>
       {% endfor %}
     </div>
     {% if user.is_authenticated %}
-      {{ user.username }}
-      <div class="bt_wrap">
+      <div class="bt_wrap" >
         <a href="{% url 'commit:write_view' %}" class="on">글쓰기</a>
       </div>
     {% endif %}

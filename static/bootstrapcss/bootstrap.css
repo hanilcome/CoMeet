@@ -3442,7 +3442,8 @@ tbody.collapse.in {
 }
 .dropdown-menu > li > a {
   display: block;
-  padding: 3px 20px;
+  margin-right: 10px;
+  padding: 3px 10px 0 0;
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;

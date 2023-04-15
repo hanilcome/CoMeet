@@ -1,0 +1,386 @@
+@font-face {
+    font-family: 'Kanginhan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_07@1.0/Kanginhan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: light;
+    font-style: light;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+.co2 {
+    font-family: 'Kanginhan';
+    color: red;
+    font-size: 7rem;
+}
+
+.meet2 {
+    font-family: 'GmarketSansMedium';
+}
+
+ul, li {
+    list-style: none;    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.by_count {
+    white-space:pre-line;
+    padding: 0 15px 20px;
+    font-size: 1.6rem;
+}
+
+.by_board_wrap {
+    width: 1000px;
+    margin: 100px auto;
+}
+
+.by_board_title {
+    margin-bottom: 30px;
+}
+
+.by_board_title strong {
+    font-size: 3rem;
+}
+
+.by_board_title p {
+    margin-top: 5px;
+    font-size:  1.4rem;
+}
+
+.bt_wrap {
+    margin-top: 30px;
+    text-align: center;     /* 목록 등록,수정버튼 가운데 정렬 */
+    font-size: 0;
+}    
+
+
+.bt_wrap a {
+    display:  inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 1.4rem;
+}
+
+.bt_wrap a:first-child {
+    margin-left: 0;
+}
+
+.bt_wrap a.on {
+    background:black;
+    color: white;      /* 목록 등록버튼 색상 입히기 */
+}
+
+.board_list {
+    width: 100%;
+    border-top: 2px solid black;     /* 공지사항 밑 바 */
+}
+
+.board_list > div {
+    border-bottom: 1px solid #ddd;
+    font-size: 0;     /* 각글 안쪽 아랫부분 바 */
+}
+
+.board_list > div.top {
+    border-color: #999;
+}
+
+.board_list > div:last-child {
+    border-bottom: 1px solid #000;     /* 글 목록 아랫부분 바 */
+}
+
+.board_list > div > div {
+    display: inline-block;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.4rem;     /* 글 목록 가로로 정렬 */
+}
+
+.board_list > div.top > div {
+    font-weight: 600;
+}
+
+.board_list .num {
+    width: 10%;     /* 번호와 제목 사이의 공백 */
+}
+
+.board_list .by_title {
+    width: 60%;
+    text-align: left;      /* 제목과 글쓴이 사이의 공백 */
+}
+
+.board_list .top .by_title {
+    text-align: center;
+}
+
+.board_list .writer {
+    width: 10%;     /* 글쓴이와 작성일 사이의 공백 */
+}
+
+.board_list .date {
+    width: 10%;     
+}
+
+.board_list .count {
+    width: 10%;     
+}
+
+.board_page {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+.board_page a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-left: 0;
+    line-height: 100%;
+}
+
+.board_page a.bt {
+    padding-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+}
+
+.board_page a.num {
+    padding-top: 9px;
+    font-size: 1.4rem;
+}
+
+.board_page a.num .on {
+    border-color: #000;
+    background: #000;
+    color: #fff;
+}
+
+.board_page a:first-child {
+    border-left: 1px solid #ddd;
+}
+
+
+
+
+
+/* view 페이지 부분 */
+
+
+.fa {
+    display: inline-block;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.board_footer {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    margin-top: 18px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 15px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.pull-right {
+    float: right ;
+}
+
+.pull-left {
+    float: left ;
+}
+
+.by_board_view {
+    width: 100%;
+    border-top: 2px solid #000;
+}
+
+.by_board_view .by_title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 2.6rem;
+}
+
+.by_board_view .by_info {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+}
+
+.by_board_view .by_info dl {       /* 번호, 글쓴이 등 가로 정렬 */
+    position: relative;
+    display: inline-block;  
+    padding: 0, 20px;  
+}
+
+.by_board_view .by_info dl:first-child {
+    padding-left: 0;
+}
+
+.by_board_view .by_info dl::before {
+    content: "";       /* 번호, 글쓴이 등 옆에 짝대기 */
+    position: absolute;
+    top: 1px;
+    left: 0;
+    /* display: block;  이거 없으면 짝대기 사라짐 / 아놔 쒸 바가 안내려와서 일단 주석처리함.. 안쓰어!!! */  
+    /* width: 1px; */
+    /* height: 13px; */
+    /* background: red;  */
+}
+
+ /* 위에 짝대기 랑 세트임 */
+/* .by_board_view .by_info dl:first-child::before {         
+    display: none;
+} */
+
+.by_board_view .by_info dl dt,
+.by_board_view .by_info dl dd {     /* 번호, 글쓴이 등 가로 정렬 */
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+.by_board_view .by_info dl dd {    
+    margin: 10px;
+    color: #777;
+}
+
+.by_board_view .count {
+    padding: 15px;
+    border-bottom: 1px solid #000;
+    line-height: 160%;
+    font-size: 1.4rem;
+}
+
+.by_board_view_comment {
+    padding: 60px 0 30px 0;
+    font-size: 15px;
+}
+
+.by_media {
+    margin-bottom: 20px;
+    padding: 8px 0 10px 3px;
+    border-style: outset;
+    border-bottom: 1px solid #999;
+    border-radius: 10px;
+    
+}
+
+p {
+    margin: 7px;
+}
+
+.by_media-body {
+    font-size: 15px;
+}
+
+.comment_delete {
+    padding: 10px 10px 15px 10px;
+}
+
+.view_img {
+    margin: 100px;
+}
+
+/* write 글쓰기 부분 */
+.board_write {     /* 맨 위 바 */
+    border-top: 2px solid #000;
+}
+
+.board_write .by_title,
+.board_write .by_info {
+    padding: 15px;
+}
+
+.board_write .by_info {
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size: 0;       /* 이거 해줘야 글쓴이, 비밀번호 사이 떨어짐 */
+}
+
+.board_write .by_title dt,          /* 제목, 글쓴이, 비밀번호 가로 정렬 */
+.board_write .by_title dd,
+.board_write .by_info dt,
+.board_write .by_info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.board_write .by_title dt,
+.board_write .by_info dt {
+    width: 100px;
+}
+
+.board_write .by_title dd {
+    width: calc(100% - 100px);
+}
+
+.board_write .by_title input[type="text"],
+.board_write .by_info input[type="text"],
+.board_write .by_info input[type="password"] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.board_write .by_title input[type="text"] {
+    width: 80%;
+}
+
+.board_write .by_title dl {         /* 제목 인풋창 */
+    font-size: 0;
+}
+
+.board_write .by_info dl {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+
+.board_write .cont {
+    border-bottom: 1px solid #000;
+
+}
+
+.board_write .cont textarea {        /* 내용 입력 부분 */
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
