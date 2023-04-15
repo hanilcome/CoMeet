@@ -86,13 +86,13 @@ header {
 
 }
 
-.co {
+.co_base {
   font-family: 'Kanginhan';
   font-size: 8rem;
   color: red;
 }
 
-.meet {
+.meet_base {
   color: rgb(0, 0, 0);
   font-family: 'Ansungtangmyun-Bold';
   font-size: 5rem;

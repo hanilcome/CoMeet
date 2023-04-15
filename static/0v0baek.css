@@ -10,8 +10,7 @@
 
     .board_list .num,
     .board_list .writer,
-    .board_list .cont
-    .board_list .title {
+    .board_list .cont .board_list .title {
         display: none;
     }
 
@@ -44,8 +43,9 @@
         width: 50%;
         padding: 0;
     }
+
     .board_view .info dl:nth-child(-n+2) {
-        margin-bottom: 5px;   
+        margin-bottom: 5px;
     }
 
     .board_view .info dl::before {
@@ -89,14 +89,14 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_07@1.0/Kanginhan.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
 @font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     font-weight: light;
     font-style: light;
-  }
+}
 
 
 
@@ -116,11 +116,12 @@ html {
 }
 
 .meet2 {
-    font-family: 'GmarketSansMedium';
+    font-family: 'Ansungtangmyun-Bold';
 }
 
-ul, li {
-    list-style: none;    
+ul,
+li {
+    list-style: none;
 }
 
 a {
@@ -152,12 +153,13 @@ a {
 
 .board_title p {
     margin-top: 5px;
-    font-size:  1.4rem;
+    font-size: 1.4rem;
 }
 
 
 /* write 글쓰기 부분 */
-.board_write {     /* 맨 위 바 */
+.board_write {
+    /* 맨 위 바 */
     border-top: 2px solid #000;
 }
 
@@ -167,7 +169,7 @@ a {
     padding: 15px;
 }
 
-.board_write .title textarea{
+.board_write .title textarea {
     display: block;
     width: 100%;
     height: 50px;
@@ -177,7 +179,8 @@ a {
     resize: vertical;
 }
 
-.board_write .cont textarea {        /* 내용 입력 부분 */
+.board_write .cont textarea {
+    /* 내용 입력 부분 */
     display: block;
     width: 100%;
     height: 300px;
@@ -187,7 +190,7 @@ a {
     resize: vertical;
 }
 
-.bt_submit{
+.bt_submit {
     width: 100px;
     display: block;
     margin: 10px auto auto auto;

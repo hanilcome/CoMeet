@@ -14,14 +14,14 @@ def log_in_view(request):
         me = auth.authenticate(request, email=email, password=password)
         if me is not None:
             auth.login(request, me)
-            return redirect('/')    # 메인페이지로 가는
+            return redirect('commit:home')    # 메인페이지로 가는
         else:
             return redirect('user:log_in')
 
     elif request.method == 'GET':
         user = request.user.is_authenticated
         if user:
-            return redirect('commit:home')
+            return redirect('/')
         else:
             return render(request, 'user/login.html')
 
