@@ -35,14 +35,14 @@
             {{ user.username }}
             <img src="https://i.ibb.co/pRGMQPW/image.png" alt=""/>
             <div class="dropdown">
-              <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></a>
+              <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown_toggle"></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li>{{ user.username }}</li>
                 <li>
                   <a href="{% url 'user:log_out' %}" class="logout">로그아웃</a>
                 </li>
                 <li>
-                  <a href="/my_page/{{user.id}}">내 프로필</a>
+                  <a href="{% url 'user:my_page' %}">내 프로필</a>
                 </li>
               </ul>
             </div>

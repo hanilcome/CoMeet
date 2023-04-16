@@ -166,7 +166,12 @@ nav img {
 
 .dropdown>ul>li {
   padding-left: 11px;
-  
+
+}
+
+#dropdown_toggle {
+  font-size: 3rem;
+  cursor: pointer;
 }
 
 .footer {
