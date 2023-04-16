@@ -165,7 +165,8 @@ header #right-search-form {
 }
 
 nav img {
-  height: 30px;
+  height: 50px;
+  margin-right: 5px;  
 }
 
 .dropdown>ul>li {
@@ -239,3 +240,4 @@ nav img {
 .board_list_wrap .board_list .top .count {
   font-size: 1.8rem;
 }
+

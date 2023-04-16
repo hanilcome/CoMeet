@@ -25,6 +25,13 @@ def detail_commit(request, id):
         commit_id=id).order_by('created_at')
     return render(request, 'commit/detail.html', {'my_commit_': my_commit, 'comment': commit_comment})
 
+def likes(request, id):
+    if request.method == 'POST':
+        my_commit = Commit.objects.get(id=id)
+        my_commit.like_commit += 1
+        my_commit.save()
+        return redirect('/detail/'+str(id))
+
 
 def detail_write_comment(request, id):
     user = request.user.is_authenticated

@@ -397,3 +397,8 @@ p {
     font-weight: bold;
     margin-right: 16px;
 }
+
+#like_button {
+    width: 100px ;
+    height: 35px;
+}

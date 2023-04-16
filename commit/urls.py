@@ -12,4 +12,5 @@ urlpatterns = [
      path('write/', views.write_view, name='write_view'),
      path('edit/<int:id>', views.edit_view, name='edit_view'),
      path('write/delete/<int:id>', views.delete_view, name='delete_view'),
+     path('detail/like/<int:id>', views.likes, name='like')
 ]
