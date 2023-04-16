@@ -75,10 +75,21 @@ def my_page_view(request, id):
         bio = request.POST.get('bio', None)
 
         # 기존 유저정보 수정하는 방법
-        updated_user.username = username
-        updated_user.email = email
-        updated_user.bio = bio
-        updated_user.save()
-        messages.success(request, '프로필이 수정되었습니다.')
+        exist_user = get_user_model().objects.filter(username=username)
+        if exist_user:
+            messages.warning(request, '이미 존재하는 유저 이름입니다.')
+            return render(request, 'user/mypage.html', {'user': updated_user, 'commit': my_commit})
+        else:
+            updated_user.username = username
+            updated_user.email = email
+            updated_user.bio = bio
+            updated_user.save()
+            messages.success(request, '프로필이 수정되었습니다.')
 
-        return render(request, 'user/mypage.html', {'user': updated_user, 'commit': my_commit})
+            return render(request, 'user/mypage.html', {'user': updated_user, 'commit': my_commit})
+    
+def user_my_view(request, id):
+    my_user = User.objects.get(id=id)
+    my_commit = Commit.objects.filter(writer=my_user)
+    if request.method == 'GET':
+        return render(request, 'user/userview.html', {'user': my_user, 'commit': my_commit})
