@@ -68,6 +68,12 @@
   font-style: normal;
 }
 
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
 header {
   background-color: #efe3ff;
   width: 100%;
@@ -82,7 +88,6 @@ header {
   padding-bottom: 30px;
   padding-top: 10px;
   border-bottom: 2px solid #ddd;
-  /* text-shadow: #FC0 1px 0 10px; */
 }
 
 .co_base {
@@ -165,7 +170,12 @@ nav img {
 
 .dropdown>ul>li {
   padding-left: 11px;
-  
+
+}
+
+#dropdown_toggle {
+  font-size: 3rem;
+  cursor: pointer;
 }
 
 .footer {
@@ -194,4 +204,38 @@ nav img {
   color: rgb(0, 0, 0);
   font-family: 'Ansungtangmyun-Bold';
   font-size: 2rem;
+}
+
+.sign_box {
+  margin-top: 20px;
+}
+
+.base_join,
+.base_login {
+  font-size: 17px;
+  font-weight: bold;
+  font-family: 'GmarketSansMedium';
+}
+
+.base_login {
+  margin-right: 8px;
+}
+
+.base_join {
+  margin-left: 5px;
+}
+
+
+/* main 게시판 */
+
+.board_list_wrap {
+  font-family: 'Noto Sans KR';
+}
+
+.board_list_wrap .board_list .top .num,
+.board_list_wrap .board_list .top .title,
+.board_list_wrap .board_list .top .writer,
+.board_list_wrap .board_list .top .date,
+.board_list_wrap .board_list .top .count {
+  font-size: 1.8rem;
 }

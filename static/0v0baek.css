@@ -1,4 +1,8 @@
-/* 반응형 스타일 적용 / 보기싫음 빼도 됨 */
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
 
 @media (max-width: 1000px) {
     .board_wrap {
@@ -138,6 +142,7 @@ a {
 .board_wrap {
     width: 1000px;
     margin: auto;
+    font-family: 'Noto Sans KR';
 }
 
 /* 기존엔 30px이었는데 20px로 수정했습니다!  */
@@ -177,6 +182,7 @@ a {
     box-sizing: border-box;
     border: 0;
     resize: vertical;
+    font-family: 'Noto Sans KR';
 }
 
 .board_write .cont textarea {
@@ -188,6 +194,7 @@ a {
     box-sizing: border-box;
     border: 0;
     resize: vertical;
+    font-family: 'Noto Sans KR';
 }
 
 .bt_submit {
@@ -201,3 +208,4 @@ a {
     margin-left: 15px;
     margin-right: 15px;
 }
+

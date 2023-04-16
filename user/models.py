@@ -8,4 +8,4 @@ class User(AbstractUser):
     class Meta:
         db_table = 'my_user'
 
-    profile_msg = models.CharField(max_length=30, default='')
+    bio = models.CharField(max_length=30, default='')

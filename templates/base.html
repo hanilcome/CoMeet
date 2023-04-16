@@ -35,30 +35,24 @@
             {{ user.username }}
             <img src="https://i.ibb.co/pRGMQPW/image.png" alt=""/>
             <div class="dropdown">
-              <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></a>
+              <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown_toggle"></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li>{{ user.username }}</li>
                 <li>
                   <a href="{% url 'user:log_out' %}" class="logout">로그아웃</a>
                 </li>
                 <li>
-                  <a href="/my_page/{{user.id}}">내 프로필</a>
+                  <a href="/my_page/{{ user.id }}">내 프로필</a>
                 </li>
               </ul>
             </div>
           {% else %}
-            <form class="form-inline my-2 my-lg-0">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'user:log_in' %}">
-                    love in Login |
-                    <span class="join"></a>
-                    <a href="{% url 'user:sign_up' %}">
-                      JOIN</a>
-                  </span>
-                </li>
-              </ul>
-            </form>
+            <div class="sign_box">
+              <a href="{% url 'user:log_in' %}" class="base_login">
+                LOG IN</a>
+              <a href="{% url 'user:sign_up' %}" class="base_join">
+                JOIN</a>
+            </div>
           {% endif %}
         </div>
       </nav>

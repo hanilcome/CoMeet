@@ -1,44 +1,43 @@
 {% extends 'base.html' %}
 {% block title %}
-내 프로필 정보
-{% endblock %} 
+  내 프로필 정보
+{% endblock %}
 
 {% block content %}
-<div class="profile-container">
+  <div class="profile-container">
     <div class="profile-wrap">
-        <h2 class="title-center">내 프로필 정보</h2>
-        <form class="form-area" method="post" action="/my_page/">
-            <div class="form-group mt-2 mb-2">
-                <label for="username">Name</label>
-                <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}"
-                    readonly>
-            </div>
-            <div class="form-group mt-2 mb-2">
-                <label for="email">E-mail Account</label>
-                <input type="text" class="form-control" id="email" name="email" value="{{ user.email }}" readonly>
-            </div>
-            <div class="form-group mt-2 mb-2">
-                <label for="profile_msg">Comment</label>
-                <input type="text" class="form-control" id="profile_msg" name="profile_msg" value="{{ user.profile_msg }}"
-                    readonly>
-            </div>
-            <div style="float: right">
-                <button type="button" onclick="enableEdit()" class="btn btn-outline-dark">수정</button>
-                <button type="submit" style=display:none; class="btn btn-outline-dark">저장</button>
-            </div>
-        </form>
+      <h2 class="title-center">내 프로필 정보</h2>
+      <form class="form-area" method="post" action="/my_page/{{ user.id }}">
+        {% csrf_token %}
+        <div class="form-group mt-2 mb-2">
+          <label for="username">Name</label>
+          <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" readonly="readonly">
+        </div>
+        <div class="form-group mt-2 mb-2">
+          <label for="email">E-mail Account</label>
+          <input type="text" class="form-control" id="email" name="email" value="{{ user.email }}" readonly="readonly">
+        </div>
+        <div class="form-group mt-2 mb-2">
+          <label for="bio">Comment</label>
+          <input type="text" class="form-control" id="bio" name="bio" value="{{ user.bio }}" readonly="readonly">
+        </div>
+        <div style="float: right">
+          <button type="button" onclick="enableEdit()" class="btn btn-outline-dark">수정</button>
+          <button type="submit" style="display:none;" class="btn btn-outline-dark">저장</button>
+        </div>
+      </form>
     </div>
-</div>
+  </div>
 {% endblock %}
 
 {% verbatim %}
-<script src="/static/test.js"></script>
+  <script src="/static/test.js"></script>
 {% endverbatim %}
 
 {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
+  <ul class="messages">
+    {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
 {% endif %}

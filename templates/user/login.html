@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
   <head>
@@ -10,49 +11,48 @@
     <link rel="stylesheet" href="/static/taeyeon1.css">
 
   </head>
-  {% comment %} 로고묶은 h2태그였던 줄을 a태그로 바꾸어서 작동하게 하느라 class도 부여했습니다 css도 확인해서 수정해주세요(회원가입페이지 동일) {% endcomment %}
+
   <body>
     <section>
       <div class="form-box">
         <div class="form-value">
-          <form method='post' action="{% url 'user:log_in' %}">  
+          <form method='post' action="{% url 'user:log_in' %}">
             {% csrf_token %}
-            <a href="{% url 'commit:home' %}" class='login_logo'>
+            <a href="{% url 'commit:home' %}" class='login_logo' sytle="text-decoration:none;">
               <span class="co_login">Co.</span>
               <span class="meet_login">Meet</span></a>
             <div class="inputbox">
               <input type="username" id="username" name="username">
-              <label for="">Email</label>
+              <label for="">username</label>
             </div>
             <div class="inputbox">
               <input type="password" id="password" name="password">
               <label for="">Password</label>
             </div>
+            {% if messages %}
+              {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+              {% endfor %}
+            {% endif %}
             <div class="forget">
-              <label for=""><input type="checkbox">Remember Me
-                <a href="#">Forget Password</a>
-              </label>
-            </div>
-            <button class="log" type='submit'>Log in</button>
-            <button class="sign"><a href="{% url 'user:sign_up' %}">Sign up</a>
-              <div class="register">
-                <p>너는 가입한다 우리의
-                  <a href="{% url 'user:sign_up' %}">여기에</a>
-                </p>
-              </div>
-            </form>
-          </div>
+              <label for=""><input type="checkbox">Remember Me</br>
+            </br>
+            <a href="#">Forget Password</a>
+          </label>
         </div>
-      </section>
-    </body>
+        <button class="log" type='submit'>Log in</button>
+        <button class="sign" href="{% url 'user:sign_up' %}">
+          <a href="{% url 'user:sign_up' %}">Sign up</a>
+        </button>
+        <div class="register">
+          <p>너는 가입한다 우리의
+            <a href="{% url 'user:sign_up' %}">여기에</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</body>
 
-  </html>
-
-{% comment %} 링크거는거는 스파르타 강의에도 있긴합니다(form태그 안에 적용)
-잘 모르겠으면 말해주세요
-
-버튼에 각 urls로 넘어갈수 있게 하는코드
-버튼의 href안에 {% url'app_name:path_name'%}
-
-예시) 로그아웃작동하는 링크
-<a href="{% url 'user:log_out' %}" class="logout">logout</a> {% endcomment %}
+</html>
