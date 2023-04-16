@@ -30,22 +30,24 @@
               <label for="">Password</label>
             </div>
             <div class="forget">
-              <label for=""><input type="checkbox">Remember Me
-                <a href="#">Forget Password</a>
-              </label>
-            </div>
-            <button class="log" type='submit'>Log in</button>
-            <button class="sign">
-              <a href="{% url 'user:sign_up' %}">Sign up</a>
-              <div class="register">
-                <p>너는 가입한다 우리의
-                  <a href="{% url 'user:sign_up' %}">여기에</a>
-                </p>
-              </div>
-            </form>
-          </div>
+              <label for=""><input type="checkbox">Remember Me</br>
+            </br>
+            <a href="#">Forget Password</a>
+          </label>
         </div>
-      </section>
-    </body>
+        <button class="log" type='submit'>Log in</button>
+        <button class="sign" href="{% url 'user:sign_up' %}">
+          <a href="{% url 'user:sign_up' %}">Sign up</a>
+        </button>
+        <div class="register">
+          <p>너는 가입한다 우리의
+            <a href="{% url 'user:sign_up' %}">여기에</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</body>
 
-  </html>
+</html>
