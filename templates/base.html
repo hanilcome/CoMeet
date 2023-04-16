@@ -42,23 +42,17 @@
                   <a href="{% url 'user:log_out' %}" class="logout">로그아웃</a>
                 </li>
                 <li>
-                  <a href="{% url 'user:my_page' %}">내 프로필</a>
+                  <a href="/my_page/{{ user.id }}">내 프로필</a>
                 </li>
               </ul>
             </div>
           {% else %}
-            <form class="form-inline my-2 my-lg-0">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'user:log_in' %}">
-                    love in Login |
-                    <span class="join"></a>
-                    <a href="{% url 'user:sign_up' %}">
-                      JOIN</a>
-                  </span>
-                </li>
-              </ul>
-            </form>
+            <div class="sign_box">
+              <a href="{% url 'user:log_in' %}" class="base_login">
+                LOG IN</a>
+              <a href="{% url 'user:sign_up' %}" class="base_join">
+                JOIN</a>
+            </div>
           {% endif %}
         </div>
       </nav>

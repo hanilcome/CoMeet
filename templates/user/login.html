@@ -29,6 +29,11 @@
               <input type="password" id="password" name="password">
               <label for="">Password</label>
             </div>
+            {% if messages %}
+              {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+              {% endfor %}
+            {% endif %}
             <div class="forget">
               <label for=""><input type="checkbox">Remember Me</br>
             </br>
@@ -49,4 +54,5 @@
   </div>
 </section>
 </body>
+
 </html>

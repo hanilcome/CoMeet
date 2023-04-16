@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from .models import User
 
 
+
 def log_in_view(request):
     if request.method == 'POST':
         username = request.POST.get('username', None)
@@ -39,9 +40,10 @@ def sign_up_view(request):
         password = request.POST.get('password', None)
         password2 = request.POST.get('password2', None)
         email = request.POST.get('email', None)
+        bio = request.POST.get('bio', None)
 
         if password != password2:
-            messages.warning(request, '기억력 딸림?')  # 비밀번호 불일치시 회원가입 화면 다시 보여주기
+            messages.warning(request, '비밀번호가 틀렸어요..')  # 비밀번호 불일치시 회원가입 화면 다시 보여주기
             return render(request, 'user/signup.html')
         else:
             exist_user = get_user_model().objects.filter(username=username)
@@ -49,8 +51,7 @@ def sign_up_view(request):
                 messages.warning(request, 'Doppelgänger!!')
                 return render(request, 'user/signup.html')
             else:
-                User.objects.create_user(
-                    username=username, password=password, email=email)
+                User.objects.create_user(username=username, password=password, email=email, bio=bio)
                 return redirect('user:log_in')
 
 
@@ -62,10 +63,6 @@ def log_out_view(request):
 
 @login_required
 def my_page_view(request, id):
-    """
-    마이페이지, 내 프로필 수정, (비밀번호 초기화)
-    엘리사님
-    """
     updated_user = User.objects.get(id=id)
     if request.method == 'GET':
         return render(request, 'user/mypage.html', {'user': updated_user})
@@ -73,11 +70,13 @@ def my_page_view(request, id):
     elif request.method == 'POST':
         username = request.POST.get('username', None)
         email = request.POST.get('email', None)
+        bio = request.POST.get('bio', None)
 
         # 기존 유저정보 수정하는 방법
         updated_user.username = username
         updated_user.email = email
+        updated_user.bio = bio
         updated_user.save()
         messages.success(request, '프로필이 수정되었습니다.')
 
-        return render(request, 'mypage.html', {'user': updated_user})
+        return render(request, 'user/mypage.html', {'user': updated_user})
