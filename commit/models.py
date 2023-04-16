@@ -11,6 +11,7 @@ class Commit(models.Model):
     title = models.CharField(max_length=256, default='')
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length=256)
+    like = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
