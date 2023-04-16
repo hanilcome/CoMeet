@@ -12,12 +12,7 @@ def home(request):
         return render(request, 'main.html', {'commit': all_commit})
 
 
-def detail(request):
-    if request.method == 'GET':
-        # order_by: tweet이 생성된 시간 순으로 출력 해줌(하지만 안에 '-'를 넣어줌으로써 역순으로 정렬된다.)
-        all_commit = Commit.objects.all().order_by('-created_at')
-        return render(request, 'main.html', {'commit_': all_commit})
-
+# 상세글 보기
 
 def detail_commit(request, id):
     my_commit = Commit.objects.get(id=id)
@@ -25,12 +20,17 @@ def detail_commit(request, id):
         commit_id=id).order_by('created_at')
     return render(request, 'commit/detail.html', {'my_commit_': my_commit, 'comment': commit_comment})
 
+
+# 좋아요
+
 def likes(request, id):
     if request.method == 'POST':
         my_commit = Commit.objects.get(id=id)
         my_commit.like_commit += 1
         my_commit.save()
         return redirect('/detail/'+str(id))
+
+# 댓글쓰기
 
 
 def detail_write_comment(request, id):
@@ -50,6 +50,8 @@ def detail_write_comment(request, id):
         messages.warning(request, '댓글 작성을 위해서는 로그인이 필요합니다')
         return redirect('/detail/'+str(id))
 
+# 댓글지우기
+
 
 @login_required
 def detail_delete_comment(request, id):
@@ -57,6 +59,8 @@ def detail_delete_comment(request, id):
     current_commit = comment.commit.id
     comment.delete()
     return redirect('/detail/'+str(current_commit))
+
+# 글쓰기
 
 
 def write_view(request):
@@ -68,14 +72,14 @@ def write_view(request):
     if request.method == 'POST':
         user = request.user
         my_commit = Commit()
-        my_commit.category = request.POST.get('category','')
+        my_commit.category = request.POST.get('category', '')
         my_commit.writer = user
         my_commit.title = request.POST.get('my-title', '')
         my_commit.content = request.POST.get('my-content', '')
         my_commit.save()
         return redirect('/')
 
-# 게시글 수정함수
+# 게시글 수정
 
 
 def edit_view(request, id):
@@ -89,6 +93,8 @@ def edit_view(request, id):
         return redirect('/detail/'+str(id))
     elif request.method == 'GET':
         return render(request, 'commit/edit.html', {'commit': my_commit})
+
+# 글지우기
 
 
 def delete_view(request, id):
