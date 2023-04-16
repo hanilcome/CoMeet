@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages, auth
 from django.contrib.auth import get_user_model
 from .models import User
-
+from commit.models import Commit
 
 
 def log_in_view(request):
@@ -64,8 +64,10 @@ def log_out_view(request):
 @login_required
 def my_page_view(request, id):
     updated_user = User.objects.get(id=id)
+    my_commit = Commit.objects.filter(writer=request.user)
+    print(my_commit)
     if request.method == 'GET':
-        return render(request, 'user/mypage.html', {'user': updated_user})
+        return render(request, 'user/mypage.html', {'user': updated_user, 'commit': my_commit})
 
     elif request.method == 'POST':
         username = request.POST.get('username', None)
@@ -79,4 +81,4 @@ def my_page_view(request, id):
         updated_user.save()
         messages.success(request, '프로필이 수정되었습니다.')
 
-        return render(request, 'user/mypage.html', {'user': updated_user})
+        return render(request, 'user/mypage.html', {'user': updated_user, 'commit': my_commit})

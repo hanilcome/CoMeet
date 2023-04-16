@@ -10,7 +10,7 @@
         <div class="title">제목</div>
         <div class="writer">글쓴이</div>
         <div class="date">작성일</div>
-        <div class="count">조회</div>
+        <div class="count">좋아요</div>
       </div>
       {% for cmt in commit %}
         <div>
@@ -20,6 +20,7 @@
           </div>
           <div class="writer">{{ cmt.writer.username }}</div>
           <div class="date">{{ cmt.updated_at | date:"Y-m-d" }}</div>
+          <div class="count">{{ cmt.like }}</div>
         </div>
       {% endfor %}
     </div>

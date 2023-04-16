@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}
-  내 프로필 정보
+  마이 페이지
 {% endblock %}
 
 {% block content %}
   <div class="profile-container">
     <div class="profile-wrap">
-      <h2 class="title-center">내 프로필 정보</h2>
+      <h2 class="title-center">마이 페이지</h2>
       <form class="form-area" method="post" action="/my_page/{{ user.id }}">
         {% csrf_token %}
         <div class="form-group mt-2 mb-2">
@@ -27,6 +27,19 @@
         </div>
       </form>
     </div>
+  </div>
+
+  <div>
+    {% for cmt in commit %}
+      <div>
+        <div class="num">{{ cmt.id }}</div>
+        <div class="title" style="text-align: center;">
+          <a href="/detail/{{cmt.id}}">{{ cmt.title }}</a>
+        </div>
+        <div class="writer">{{ cmt.writer.username }}</div>
+        <div class="date">{{ cmt.updated_at | date:"Y-m-d" }}</div>
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}
 
