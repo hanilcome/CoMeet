@@ -17,9 +17,9 @@
         <div class="form-value">
           <form action="/sign_up/" method='post'>
             {% csrf_token %}
-            <a href="{% url 'commit:home' %}" sytle="text-decoration:none;">
-              <span class="co_signup">Co.</span>
-              <span class="meet_signup">Meet</span></a>
+            <a href="{% url 'commit:home' %}" class='login_logo' sytle="text-decoration:none;">
+              <span class="co_login">Co.</span>
+              <span class="meet_login">Meet</span></a>
             <div class="inputbox">
               <input type="text" required="required" id="username" name="username">
               <label for="">Name</label>
