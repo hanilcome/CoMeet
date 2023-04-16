@@ -7,6 +7,8 @@ from .models import User
 from commit.models import Commit
 
 
+# 로그인
+
 def log_in_view(request):
     if request.method == 'POST':
         username = request.POST.get('username', None)
@@ -28,6 +30,7 @@ def log_in_view(request):
             return render(request, 'user/login.html')
 
 
+# 회원가입
 def sign_up_view(request):
     if request.method == 'GET':
         user = request.user.is_authenticated
@@ -43,7 +46,8 @@ def sign_up_view(request):
         bio = request.POST.get('bio', None)
 
         if password != password2:
-            messages.warning(request, '비밀번호가 틀렸어요..')  # 비밀번호 불일치시 회원가입 화면 다시 보여주기
+            # 비밀번호 불일치시 회원가입 화면 다시 보여주기
+            messages.warning(request, '비밀번호가 틀렸어요..')
             return render(request, 'user/signup.html')
         else:
             exist_user = get_user_model().objects.filter(username=username)
@@ -51,14 +55,19 @@ def sign_up_view(request):
                 messages.warning(request, 'Doppelgänger!!')
                 return render(request, 'user/signup.html')
             else:
-                User.objects.create_user(username=username, password=password, email=email, bio=bio)
+                User.objects.create_user(
+                    username=username, password=password, email=email, bio=bio)
                 return redirect('user:log_in')
+
+# 로그아웃
 
 
 @login_required
 def log_out_view(request):
     auth.logout(request)
     return redirect('/')
+
+# 내 프로필보기
 
 
 @login_required
@@ -87,7 +96,10 @@ def my_page_view(request, id):
             messages.success(request, '프로필이 수정되었습니다.')
 
             return render(request, 'user/mypage.html', {'user': updated_user, 'commit': my_commit})
-    
+
+# 다른사람 프로필보기
+
+
 def user_my_view(request, id):
     my_user = User.objects.get(id=id)
     my_commit = Commit.objects.filter(writer=my_user)
