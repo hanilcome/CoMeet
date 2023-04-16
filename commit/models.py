@@ -7,6 +7,7 @@ class Commit(models.Model):
     class Meta:
         db_table = "my_commit"
 
+    category = models.CharField(max_length=256, default='')
     title = models.CharField(max_length=256, default='')
     writer = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length=256)

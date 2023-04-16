@@ -11,6 +11,14 @@
       <div class="board_write">
         <form action="/write/" method="post">
           {% csrf_token %}
+          <div class="select_cate">
+            <select name="category" id="category" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>카테고리 선택</option>
+              <option value="유머">유머</option>
+              <option value="정보">정보</option>
+              <option value="비밀">비밀</option>
+            </select>
+          </div>
           <div class="title">
             <textarea name='my-title' id="my-title" placeholder="제목을 입력하세요"></textarea>
           </div>

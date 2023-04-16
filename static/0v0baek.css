@@ -202,3 +202,10 @@ a {
     display: block;
     margin: 10px auto auto auto;
 }
+
+.select_cate {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+

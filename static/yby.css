@@ -241,6 +241,7 @@ a {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 5px;
+    padding-bottom: -10px;
     border-bottom: 1px solid #999;
     font-size: 0;
 }
@@ -304,7 +305,8 @@ a {
 }
 
 p {
-    margin: 7px;
+    margin-top: 7px;
+    margin-left: 13px;
 }
 
 .by_media-body {
@@ -312,7 +314,7 @@ p {
 }
 
 .comment_delete {
-    padding: 10px 10px 15px 10px;
+    padding: 0 10px 5px 13px;
 }
 
 .view_img {
@@ -388,4 +390,10 @@ p {
     box-sizing: border-box;
     border: 0;
     resize: vertical;
+}
+
+.detail_category {
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin-right: 16px;
 }
