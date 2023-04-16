@@ -29,6 +29,10 @@
               <label for="">Email</label>
             </div>
             <div class="inputbox">
+              <input type="text" required="required" id="bio" name="bio">
+              <label for="">Profile message</label>
+            </div>
+            <div class="inputbox">
               <input type="password" required="required" id="password" name="password">
               <label for="">Password</label>
             </div>
@@ -36,6 +40,11 @@
               <input type="password" required="required" id="password2" name="password2">
               <label for="">Password check</label>
             </div>
+            {% if messages %}
+              {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+              {% endfor %}
+            {% endif %}
             <div class="news">
               <label for=""><input type="checkbox">
                 Co.Meet 소식받기

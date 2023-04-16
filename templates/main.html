@@ -24,7 +24,7 @@
       {% endfor %}
     </div>
     {% if user.is_authenticated %}
-      <div class="bt_wrap" >
+      <div class="bt_wrap">
         <a href="{% url 'commit:write_view' %}" class="on">글쓰기</a>
       </div>
     {% endif %}
