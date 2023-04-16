@@ -22,7 +22,7 @@ def detail(request):
 def detail_commit(request, id):
     my_commit = Commit.objects.get(id=id)
     commit_comment = Comment.objects.filter(
-        commit_id=id).order_by('-created_at')
+        commit_id=id).order_by('created_at')
     return render(request, 'commit/detail.html', {'my_commit_': my_commit, 'comment': commit_comment})
 
 
