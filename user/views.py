@@ -60,10 +60,7 @@ def log_out_view(request):
 
 @login_required
 def my_page_view(request, id):
-    """
-    마이페이지, 내 프로필 수정, (비밀번호 초기화)
-    엘리사님
-    """
+    
     updated_user = User.objects.get(id=id)
     if request.method == 'GET':
         return render(request, 'user/mypage.html', {'user': updated_user})

@@ -82,8 +82,7 @@ header {
   padding-bottom: 30px;
   padding-top: 10px;
   border-bottom: 2px solid #ddd;
-  text-shadow: #FC0 1px 0 10px;
-
+  /* text-shadow: #FC0 1px 0 10px; */
 }
 
 .co_base {

@@ -9,7 +9,7 @@
     </div>
     <div class="board_write_wrap">
       <div class="board_write">
-        <form action="edit/{{ commit.id }}" method="post">
+        <form action="/edit/{{ commit.id }}" method="post">
           {% csrf_token %}
           <div class="title">
             <textarea name='my-title' id="my-title">{{ commit.title }}</textarea>
