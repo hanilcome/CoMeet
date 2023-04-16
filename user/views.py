@@ -16,6 +16,7 @@ def log_in_view(request):
             auth.login(request, me)
             return redirect('commit:home')    # 메인페이지로 가는
         else:
+            messages.warning(request, '당신 누구야!!')
             return redirect('user:log_in')
 
     elif request.method == 'GET':
@@ -39,11 +40,13 @@ def sign_up_view(request):
         password2 = request.POST.get('password2', None)
         email = request.POST.get('email', None)
 
-        if password != password2:    # 비밀번호 불일치시 회원가입 화면 다시 보여주기
+        if password != password2:
+            messages.warning(request, '기억력 딸림?')  # 비밀번호 불일치시 회원가입 화면 다시 보여주기
             return render(request, 'user/signup.html')
         else:
             exist_user = get_user_model().objects.filter(username=username)
             if exist_user:
+                messages.warning(request, 'Doppelgänger!!')
                 return render(request, 'user/signup.html')
             else:
                 User.objects.create_user(

@@ -43,9 +43,14 @@
                 </p>
               </div>
             </form>
+            {% if messages %}
+              {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+              {% endfor %}
+            {% endif %}
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </body>
 
   </html>
