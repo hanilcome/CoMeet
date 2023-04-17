@@ -39,7 +39,7 @@ def detail_write_comment(request, id):
         if request.method == 'POST':
             comment = request.POST.get("comment", "")
             current_commit = Commit.objects.get(id=id)
-            
+            print("테스트 123123  ")
             TC = Comment()
             TC.comment = comment
             TC.writer = request.user
