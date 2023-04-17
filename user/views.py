@@ -74,7 +74,6 @@ def log_out_view(request):
 def my_page_view(request, id):
     updated_user = User.objects.get(id=id)
     my_commit = Commit.objects.filter(writer=request.user)
-    print(my_commit)
     if request.method == 'GET':
         return render(request, 'user/mypage.html', {'user': updated_user, 'commit': my_commit})
 
