@@ -37,3 +37,11 @@ py manage.py check
 py manage.py createsuperuser
 
 py manage.py runserver
+
+
+user app
+유저에 대한 기능을 담은 app
+
+commit
+게시글에 대한 기능 담당하는 app
+(git에서 commit하는것 처럼 게시물을 commit한다는 의미로 지음)
