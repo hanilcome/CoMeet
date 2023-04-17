@@ -45,3 +45,7 @@ user app
 commit
 게시글에 대한 기능 담당하는 app
 (git에서 commit하는것 처럼 게시물을 commit한다는 의미로 지음)
+
+
+Co.Meet
+협력하다의 coperate와 만나다의 meet을 합쳐 commit과 발음을 비슷하게 만든 합성어
